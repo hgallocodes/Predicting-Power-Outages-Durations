@@ -96,7 +96,11 @@ Intuitively, a strong predictor for outage duration may be the cause of the powe
 
 The output of our knn_reg_perf function is a dataframe of training and testing rmse and r-squared values from 1 to 200. The index of the dataframe denotes the number of neighbors used in the regressor. We plot this below to get a better view of our error data.
 
+<iframe src="assets/fig4.html" width=800 height=600 frameBorder=0></iframe>
+
 Our rmse for both training and testing appears to be minimized around 20. What does our r-squared look like?
+
+<iframe src="assets/fig5.html" width=800 height=600 frameBorder=0></iframe>
 
 Luckily for us, both our training and test r-squared errors appear to be maximized at around 20. To get a more accurate number for our neighbor metric we will use gridsearchcv.
 
