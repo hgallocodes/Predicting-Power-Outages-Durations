@@ -80,6 +80,20 @@ The correlation coefficients seem to fit our interpretation of the graphs. Yet, 
 
 Intuitively, a strong predictor for outage duration may be the cause of the power outage. In our analysis, we are assuming that the power outage has just occurred, and that the cause of the outage is known. Based on this information, we may be able to generalize outage duration times. For example, severe-weather induced power outages may last longer than intentional attacks since there is a higher sense of urgency for attacks, and because most of the time companies must wait for the harsh weather conditions to pass. Another parameter that could significantly influence power outage durations is location. Different states may have different weather patterns, population sizes, availability of resources, local regulations, and so on. Accordingly, for our baseline model we focus on these two predictors, CAUSE.CATEGORY and U.S._STATE. These variables are both nominal. CAUSE,CATEGORY depicts the cause of the power outage, like severe-weather or intentional attack, while U.S._STATE depicts the state where the power outage occurred, like California. We are one-hot encoding both variables so we can input them into our KNN regression model.
 
+|    | train_rmse_err | test_rmse_err | train_r2_err | test_r2_err |
+|---:|-----------------|---------------|--------------|-------------|
+|  1 | 1642.270999     | 1875.361017   | 0.050308     | -0.511042    |
+|  2 | 1373.207860     | 1484.866550   | 0.336004     | 0.052713     |
+|  3 | 1332.848949     | 1467.738424   | 0.374460     | 0.074441     |
+|  4 | 1372.078114     | 1400.169371   | 0.337096     | 0.157698     |
+|  5 | 1349.243155     | 1379.142951   | 0.358977     | 0.182806     |
+|... | ...             | ...           | ...          | ...          |
+| 96 | 1370.640540     | 1293.449097   | 0.338484     | 0.281204     |
+| 97 | 1371.944761     | 1295.082746   | 0.337225     | 0.279387     |
+| 98 | 1372.836064     | 1293.390659   | 0.336363     | 0.281269     |
+| 99 | 1373.395286     | 1294.065417   | 0.335822     | 0.280519     |
+|100 | 1374.111346     | 1293.866986   | 0.335130     | 0.280740     |
+
 The output of our knn_reg_perf function is a dataframe of training and testing rmse and r-squared values from 1 to 200. The index of the dataframe denotes the number of neighbors used in the regressor. We plot this below to get a better view of our error data.
 
 Our rmse for both training and testing appears to be minimized around 20. What does our r-squared look like?
