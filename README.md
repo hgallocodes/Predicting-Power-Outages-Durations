@@ -102,6 +102,14 @@ Luckily for us, both our training and test r-squared errors appear to be maximiz
 
 After using gridsearch we see that 23 is our optimized parameter for number of neighbors. Below is the data for our rmse and r-2 squared values for testing and training with 23 neighbors using a KNN model.
 
+|                | Value        |
+|----------------|--------------|
+| train_rmse_err | 1294.576506  |
+| test_rmse_err  | 1286.928656  |
+| train_r2_err   | 0.409869     |
+| test_r2_err    | 0.288433     |
+
+
 As we can see, our rmse is about 1000 minutes, which is about 16 hours. Additionally, our r-squared values are around .30, which isn't very high. While our rmse is high, we have a lot of variation in our outage duration data that could explain this score. We believe that for a simple KNN regression model these scores are not bad, but we hope to improve them in our final model by adding more features.
 
 
