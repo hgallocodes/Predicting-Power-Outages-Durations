@@ -33,7 +33,7 @@ Below we generated scatter plots of each quantitative variable with outage durat
 
 <iframe src="assets/ind_percent.html" width=800 height=600 frameBorder=0></iframe>
 
-<iframe src="assets/res_percent.html" width=800 height=600 frameBorder=0></iframe>
+<iframe src="assets/res_customers.html" width=800 height=600 frameBorder=0></iframe>
 
 Unfortunately it doesn't look like there are any clear relationships between duration times and the other quantitative variables, such as COM.CUSTOMERS. Most of the points seem to be clustered. Some graphs did look more promising than others, including RES.CUST.PCT, COM.CUST.PCT, IND.CUST.PCT, PC.REALGSP.USA, UTIL.CONTRI, POPPCT_UC, POPDEN_RURAL, PCT_LAND, and PCT_WATER_TOT. To get a closer look, let's see what the correlation coefficents are between outage duration and each quantitative variable.
 
