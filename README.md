@@ -17,7 +17,7 @@ Based on our research, we know that the features that generally have a higher im
 
 What can we expect in terms of outage duration in general? Will the values be high? Will there be a lot of variation? Let's investigate the distribution of power outage durations by plotting a boxplot of outage durations.
 
-***Boxplot here***
+<iframe src="assets/fig1.html" width=800 height=600 frameBorder=0></iframe>
 
 Wow! There seems to be a lot of outliers in our dataset. The boxplot appears small compared to the rest of our graph because the mean outage duration is very far from the max outage duration. This could negatively influence our prediction model, since outliers could skew our prediction towards higher values, even though most of our data centers around a lower threshold. In order to ensure that our prediction model follows the trend of the majority of our data, and that it doesn't become too biased from outlier datapoints, we will only look at power outages that are within the upper fence of the boxplot, which is 7020 minutes.
 
@@ -29,7 +29,11 @@ Since we are using a regression model to predict outage duration times, we need 
 
 Below we generated scatter plots of each quantitative variable with outage duration times. While there are only 3 graphs illustrated below, we went through all of the graphs in increments of 5 and looked for any possible relationships between outage durations and other quantitative variables.
 
-### Three plots go here ***
+<iframe src="assets/com_percent.html" width=800 height=600 frameBorder=0></iframe>
+
+<iframe src="assets/ind_percent.html" width=800 height=600 frameBorder=0></iframe>
+
+<iframe src="assets/res_percent.html" width=800 height=600 frameBorder=0></iframe>
 
 Unfortunately it doesn't look like there are any clear relationships between duration times and the other quantitative variables, such as COM.CUSTOMERS. Most of the points seem to be clustered. Some graphs did look more promising than others, including RES.CUST.PCT, COM.CUST.PCT, IND.CUST.PCT, PC.REALGSP.USA, UTIL.CONTRI, POPPCT_UC, POPDEN_RURAL, PCT_LAND, and PCT_WATER_TOT. To get a closer look, let's see what the correlation coefficents are between outage duration and each quantitative variable.
 
@@ -158,5 +162,7 @@ Our training rmse score is 910, our testing rmse score is 1633, our training r-s
 ---
 
 ## Fairness Analysis
+
+<iframe src="assets/fig_histogram.html" width=800 height=600 frameBorder=0></iframe>
 
 ---
