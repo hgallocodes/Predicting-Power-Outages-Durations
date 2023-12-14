@@ -163,6 +163,25 @@ Our training rmse score is 910, our testing rmse score is 1633, our training r-s
 
 ## Fairness Analysis
 
+We will be performing a "fairness analysis" of our Final Model from the previous step. The question we will try to answer is: Does our model perform better when predicting the power outage duration for states that are located in the East of the United States than it does for states that are located in the West?
+
+Since we are comparing a quantitative attribute, in this case R^2 across the two groups, we will be using a permutation test. First, we will divide all the obsevations into two categories: East and West. We will do this by creating a new column 'region', that will contain a 1 if the power outage took place in a state that is in the East side of the country, or a 0 if the power outage happened in a state in the West side of the country.
+
+Therfore, Group X will be power outages that took place in Eastern states and Group Y will be power outages that took place in Western states.
+
+As we know, the model will output the R^2 score that it achieves, so we can use this R^2 score to compare how the model does for predicting power outage duration for Eastern and Western states.
+
+From the whole dataframe, we obtain the difference in performance when the model predicts the power outage duration for Western and Eastern states. Surprisingly, it seems like the model performs better when predicting the power outage durations for Eastern states. Therefore, our null hypothesis is: The k-NN regressor model is fair. It will perform equally when predicting the power outage duraiton for the Eastern and Western states. Our alternative hypothesis is: The k-NN regresssor model is unfair. It will perform better when predicting the power outage duration for Eastern states than for Western states. The test statistic will be the difference between the R^2 obtained from predicting the power outage durations for Eastern states and Western states. If the test statistic is positive, then this means that the model seems to be better at predicting the power outage duration for Eastern states.
+
+In order to perform the permutation test, we will create a function that shuffles the 'region' column and computes the difference of R^2 between the Eastern and Wester states. This will allow us to run a permutation test in which we create a distribution under the null, and observe wheter our observed statistic is way too high and, therefore, see if the model seems to be unfair since it has a higher R^2 when predicting the power outage duration for Eastern states. 
+
+Now, we can proceed to run the permutation test
+
+After running the permutation test, we can see that the p-value of the observed statistic is 0.437. This is way higher than a significance level of 0.05, therefore, we fail to reject the null. Although this isn't enough evidence to conclude that the null hypothesis is 100% true, we can at least observe that the model appears to make fair predictions for both the Eastern and Western states.
+
+In order to visualize this, we can create a histogram with the distribution of R^2 differences under the null. As we can see, the observed statistic lies almost in the middle of the disribution created under the null.
+
+
 <iframe src="assets/fig_histogram.html" width=800 height=600 frameBorder=0></iframe>
 
 ---
