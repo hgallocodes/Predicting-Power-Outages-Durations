@@ -1,4 +1,4 @@
-# Predicting-Power-Outages-Durations
+# Predicting-Power-Outage-Durations
 by Sarah Borsotto (sborsott@ucsd.edu) and Hector Gallo (hgallo@ucsd.edu)
 
 ---
